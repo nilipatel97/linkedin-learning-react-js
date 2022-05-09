@@ -1,0 +1,22 @@
+{
+  "name": "linkedin-learning-react",
+  "version": "1.0.0",
+  "description": "This is a react course taught by Eve P",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilipatel97/linkedin-learning-react-js.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Nili Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilipatel97/linkedin-learning-react-js/issues"
+  },
+  "homepage": "https://github.com/nilipatel97/linkedin-learning-react-js#readme"
+}
