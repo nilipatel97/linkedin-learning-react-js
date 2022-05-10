@@ -52,6 +52,8 @@ root3.render(
   <h1 className="cool-text">Make way for President {president}!</h1>
 )
 
+/***************************** *************************************** */ 
+
 let city = {
   name: "Madrid",
   country: "Spain"
@@ -63,3 +65,26 @@ const root4 = ReactDOM.createRoot(document.getElementById('root4'));
 root4.render(
   <h1 id= "heading">{city.name} is in {city.country}!</h1>
 )
+
+/***************************** [3.1] Creating a React Component*************************************** */
+function Hello() {
+  return (
+    <div>
+    <h1>Welcome to React!</h1>
+    <p> Let's build something cool!</p>
+    </div>
+  )
+}
+
+const root5 = ReactDOM.createRoot(document.getElementById('root5'));
+
+root5.render(
+  <Hello />
+)
+
+/**Note: 
+ * - components must be capitalized in React
+ * - a react component is actually a function
+ * - the return statement has all of your HTML and should be wrapped in a div
+ * */
+
