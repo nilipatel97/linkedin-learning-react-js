@@ -5,8 +5,14 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  React.createElement("h1", null, "hellooooo!!!")
+  React.createElement("h1", null, "good morning!!!")
 );
+
+const root2 = ReactDOM.createRoot(document.getElementById("root2"));
+
+root2.render(
+  React.createElement("div", {style: {backgroundColor:"pink"}}, React.createElement("h2", {style:{color: "green"}}, "good afternoon!!!!~"))
+)
 
 
 
@@ -20,3 +26,5 @@ root.render(
   // 3) store that root in a const
 
   // root.render(React.createElement(a,b,c))
+
+  //CONCLUSION -- react.createElement calls get very unweildy ... jsx helps with this
