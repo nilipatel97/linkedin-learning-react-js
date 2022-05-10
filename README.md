@@ -100,7 +100,10 @@ ReactDOM.render(<Hello />, getElementByID("root"))
 
 ```
 function Hello(props) {
-    return <div> <h1> Welcome to the {props.courseName} Course!</h1> <p>My name is {props.name}. I am {props.age} years old. And I'll be your instructor! Let's build something cool!</p> </div>
+    return(<div> 
+    <h1> Welcome to the {props.courseName} Course!</h1> 
+    <p>My name is {props.name}. I am {props.age} years old. And I'll be your instructor! Let's build something cool!</p> 
+    </div>)
 }
 
 ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementByID("root"))
@@ -109,7 +112,10 @@ ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementB
 * Can also pass functions
 ```
 function Hello(props) {
-    return <div> <h1> Welcome to the {props.courseName} Course!</h1> <p>My name is {props.name}. I am {props.age} years old. There are {Objects.keys(props).length} props being used in this demo. And I'll be your instructor! Let's build something cool!</p> </div>
+    return (<div> 
+    <h1> Welcome to the {props.courseName} Course!</h1> 
+    <p>My name is {props.name}. I am {props.age} years old. There are {Objects.keys(props).length} props being used in this demo. And I'll be your instructor! Let's build something cool!</p> 
+    </div>)
 }
 
 ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementByID("root"))
@@ -118,7 +124,10 @@ ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementB
 * Will also see the values from the props object destructured
 ```
 function Hello({courseName, name, age}) {
-    return <div> <h1> Welcome to the {courseName} Course!</h1> <p>My name is {name}. I am {age} years old. There are {Objects.keys(props).length} props being used in this demo. And I'll be your instructor! Let's build something cool!</p> </div>
+    return (<div> 
+    <h1> Welcome to the {courseName} Course!</h1> 
+    <p>My name is {name}. I am {age} years old. There are {Objects.keys(props).length} props being used in this demo. And I'll be your instructor! Let's build something cool!</p> 
+    </div>)
 }
 
 ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementByID("root"))
