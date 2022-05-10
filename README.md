@@ -59,18 +59,20 @@
 * While JSX is similar to HTML, there are some differences
 
 1) Can create variables, and dynamically change them.
-<code>
+
+```
 const city = "madrid"
 root.render(<p>Hello from {city}!</p>)
-</code>
+```
 
 2) Can create objects, and dynamically use their values.
-<code>
+
+```
 let city = "edison"
 let state = "nj"
 
 root.render(<p> {city.name} is in {city.country}!)
-</code>
+```
 
 3) Can add classNames and ids and styles directly to the tags
 * can write the styles in the public index.html file
