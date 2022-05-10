@@ -75,6 +75,64 @@ root.render(<p> {city.name} is in {city.country}!)
 3) Can add classNames and ids and styles directly to the tags
 * can write the styles in the public index.html file
 
+#### [Chapter 3 Lesson 1] Creating a React COMPONENT
+* A react component is a function that returns some UI
+
+1) Here's a very simple React Component -- the component function, and the render function using the component
+* The contents in the return block of the function should be wrapped in a singular <div>
+* React components must be capitalized
+
+<code>
+function Hello() {
+    return <div> <h1> Welcome to React!</h1> <p>Let's build something cool!</p> </div>
+}
+
+ReactDOM.render(<Hello />, getElementByID("root"))
+</code>
+
+#### [Chapter 3 Lesson 2] Understanding properties
+* Can use props to display dynamic data within a component
+* First add all the properties you desire to the the React Component tag itself
+* Then pass props into the function.
+* Then replace all hard coded values with {props.age}
+
+<code>
+function Hello(props) {
+    return <div> <h1> Welcome to the {props.courseName} Course!</h1> <p>My name is {props.name}. I am {props.age} years old. And I'll be your instructor! Let's build something cool!</p> </div>
+}
+
+ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementByID("root"))
+</code>
+
+* Can also pass functions
+<code>
+function Hello(props) {
+    return <div> <h1> Welcome to the {props.courseName} Course!</h1> <p>My name is {props.name}. I am {props.age} years old. There are {Objects.keys(props).length} props being used in this demo. And I'll be your instructor! Let's build something cool!</p> </div>
+}
+
+ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementByID("root"))
+</code>
+
+* Will also see the values from the props object destructured
+<code>
+function Hello({courseName, name, age}) {
+    return <div> <h1> Welcome to the {courseName} Course!</h1> <p>My name is {name}. I am {age} years old. There are {Objects.keys(props).length} props being used in this demo. And I'll be your instructor! Let's build something cool!</p> </div>
+}
+
+ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementByID("root"))
+</code>
+
+* So to recap, the props object provides data to a component to be displayed
+* So think of the react component as a FUNCTION that takes in data as an argument, and returns React elements to create a user interface.
+
+#### [Chapter 3 Lesson 3] Composing components
+* Generally, we like to put compoents together to create a larger user interface.
+* React is really good with composing components
+
+* In the example, the App is responsible for rendering the lake.
+* The lake function is super generic, and the details about the lake name come from where it is rendered.
+
+
 #### TODO:
 * look into code sandbox website
 

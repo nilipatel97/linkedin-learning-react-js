@@ -107,3 +107,25 @@ const root6 = ReactDOM.createRoot(document.getElementById('root6'));
 root6.render(
   <Hello2 library="react" name="Nili" flavor="chocolate chip" age={24} /> //give birth to attributes
 )
+
+/***************************** [3.3] Composing Components *************************************** */
+
+const root7 = ReactDOM.createRoot(document.getElementById('root7'))
+
+function Lake({name}) {
+  return (<div>
+    <h3>Location: {name}</h3>
+  </div>)
+}
+
+function App() {
+  return (<div> 
+    <React.StrictMode>
+    <Lake name= "Lake Tahoe" />
+    <Lake name = "Angora Lake" /> 
+    <Lake name = "Shirley Lake"/>
+    </React.StrictMode>
+    </div>)
+}
+
+root7.render(<React.StrictMode><App /></React.StrictMode>)
