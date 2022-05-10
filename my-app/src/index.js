@@ -129,3 +129,31 @@ function App() {
 }
 
 root7.render(<React.StrictMode><App /></React.StrictMode>)
+
+/***************************** [3.4] Rendering Lists *************************************** */
+
+const root8 = ReactDOM.createRoot(document.getElementById('root8'))
+
+const lakeList = ["Echo Lake", "Maude Lake", "Cascade Lake"]
+
+function App2({lakes}) {
+  return (
+  <div> 
+   {lakes}
+
+   <ul>
+     {lakes.map(lake => {
+       <li>{lake}</li>
+     })}
+   </ul>
+
+  </div>)
+}
+
+root8.render(<React.StrictMode><App2 lakes = {lakeList}/></React.StrictMode>)
+
+/**
+ * - Create Lake list array
+ * - Pass it to the <App> as an attribute
+ * - Pass the lakes array attribute in, and map through it to create list items.
+ */

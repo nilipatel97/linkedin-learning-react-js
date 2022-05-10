@@ -143,6 +143,12 @@ ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementB
 * In the example, the App is responsible for rendering the lake.
 * The lake function is super generic, and the details about the lake name come from where it is rendered.
 
+#### [Chapter 3 Lesson 4] Rendering lists
+* Can have an attribute thats an array.
+* First, initiate the attribute within the tag, then point it to an internal variable thats an array.
+* Pass props into your function
+* Iterate through the prop, and return a list item for every item in the array.
+
 
 #### TODO:
 * look into code sandbox website
