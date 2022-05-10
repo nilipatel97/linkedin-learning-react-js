@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  React.createElement("h1", null, "hellooooo!!!")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+  // ReactDOM.render -- takes 2 arguments (what, where) or (react.createElement, document.getElementByID).
+  // react.createElement -- takes three arguments -- tag name, any properties, and children
+
+
+  //ReactDOM.createRoot(document.getElement) ---
+  // 1) so get an element by ID
+  // 2) pass it into the createRoot function
+  // 3) store that root in a const
+
+  // root.render(React.createElement(a,b,c))
