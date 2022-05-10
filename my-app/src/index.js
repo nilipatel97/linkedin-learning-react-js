@@ -88,3 +88,22 @@ root5.render(
  * - the return statement has all of your HTML and should be wrapped in a div
  * */
 
+
+/***************************** [3.2] Understanding Properties*************************************** */
+// with props, we can display dynamic data within a component
+function Hello2(props) { // pass in allof the attributes
+  console.log(props);
+  return (
+    <div>
+    <h1>Welcome to {props.library}!</h1>
+    <p> Let's build something cool!</p>
+    <p> My name is {props.name}, I am {props.age} and my favorite flavor of ice cream is {props.flavor}.</p>
+    </div>
+  )
+}
+
+const root6 = ReactDOM.createRoot(document.getElementById('root6')); 
+
+root6.render(
+  <Hello2 library="react" name="Nili" flavor="chocolate chip" age={24} /> //give birth to attributes
+)
