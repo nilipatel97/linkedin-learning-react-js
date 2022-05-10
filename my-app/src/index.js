@@ -49,7 +49,7 @@ let president = "Obama";
 const root3 = ReactDOM.createRoot(document.getElementById('root3'));
 
 root3.render(
-  <h1>Make way for President {president}!</h1>
+  <h1 className="cool-text">Make way for President {president}!</h1>
 )
 
 let city = {
@@ -61,5 +61,5 @@ let city = {
 const root4 = ReactDOM.createRoot(document.getElementById('root4'));
 
 root4.render(
-  <h1>{city.name} is in {city.country}!</h1>
+  <h1 id= "heading">{city.name} is in {city.country}!</h1>
 )
