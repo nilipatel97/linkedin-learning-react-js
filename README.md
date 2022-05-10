@@ -37,6 +37,8 @@
 * Lots of components
 * Having dev tool open is very important, it helps us develop
 
+#### [Chapter 2 Lesson 4] Understanding JSX features
+* While JSX is similar to HTML, there are some differences
 
 
 #### TODO:
