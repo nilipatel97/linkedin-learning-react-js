@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -304,9 +304,10 @@ root12.render(
 
 // NOTES: Adjacent React Components must be wrapped in a <div> or <React.Fragment> or <></>
 
-/******************************************************************************************* */
+/*------------------------------------------------------------------------------------------ */
 /************************ Chapter 4: React State with Hooks ******************************** */
-/******************************************************************************************* */
+/*------------------------------------------------------------------------------------------ */
+
 
 /***************************** [4.1] Array Destructuring *********************************** */
 
@@ -318,12 +319,72 @@ console.log(pH[1]);
 
 // heres it is destructured
 
-const [junk, medium, healthy] = ["popcorn", "pretzel", "pineapple"];
+const [junk] = ["popcorn", "pretzel", "pineapple"];
 
-console.log(junk);
+console.log(junk); // "popcorn"
 
 // will match the variable to the position; dont have to create variable to each position
 
 const [ , moderate] = ["basic", "economy", "business"];
 
 console.log(moderate);
+
+/******************************** [4.2] Using useState ************************************** */
+
+/** Notes:
+ * - If there is any sort of change (in property or state), the react component, will rerender.
+ * - Here, we are learning how to incorporate state values in our application
+ * 
+ * - A hook is a function that allows you to add some functionality to the component.
+ * - So useState is a built-in hook that we can use to handle state changes in our application
+ * - The first value that is returned from the useState function is the state value
+ * - The second value is a function that we can use to change that state value
+ * - If you're handling any state inside your component, useState is a powerful utility
+ * 
+ * - PROPS are passed to a function, and STATES are managed within a function. BOTH rerender the component
+ */
+
+ const root13 = ReactDOM.createRoot(document.getElementById("root13"));
+
+ function UseStateExample1() {
+   const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
+   return (
+     <div>
+       <h2>Status: {status}</h2>
+       <button onClick ={() => setStatus("We're Open")}>Open</button>
+       <button onClick ={() => setStatus("Back in 5")}>Break</button>
+       <button onClick ={() => setStatus("We're Closed")}>Closed</button>
+     </div>
+   );
+ }
+ 
+ root13.render(
+   <UseStateExample1></UseStateExample1>
+ );
+
+ /******************************** [4.3] Using multiple state variables ************************************** */
+ const root14 = ReactDOM.createRoot(document.getElementById("root14"));
+
+ function UseStateExample2() {
+   const [year, setYear] = useState(2050);
+   const [manager, setManager] = useState ("Jamie");
+   const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
+   return (
+     <div>
+       <h3>Year: {year}</h3>
+       <button onClick={() => setYear(year +1)}>Change Year</button>
+
+       <h3>Manager on Duty: {manager}</h3>
+       <button onClick={() => setManager("Kevin")}>New Manager</button>
+       
+       <h3>Status: {status}</h3>
+       <button onClick ={() => setStatus("We're Open")}>Open</button>
+       <button onClick ={() => setStatus("Back in 5")}>Break</button>
+       <button onClick ={() => setStatus("We're Closed")}>Closed</button>
+     </div>
+   );
+ }
+ 
+ root14.render(
+   <UseStateExample2></UseStateExample2>
+ );
