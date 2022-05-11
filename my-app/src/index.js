@@ -413,3 +413,42 @@ console.log(moderate);
 const root15 = ReactDOM.createRoot(document.getElementById("root15"));
 
 root15.render(<Checkbox></Checkbox>)
+
+/*------------------------------------------------------------------------------------------ */
+/************************ Chapter 5: React Enhancements ************************************ */
+/*------------------------------------------------------------------------------------------ */
+
+/********************* [5.1] Updating with the useEffect dependency array ***************** */
+
+function Application() {
+  const [val,setVal] = useState("");
+  const [val2, setVal2] = useState("")
+
+  useEffect(() => {
+    console.log(`field 1: ${val}`);
+  }, [val])
+
+  // second argument of the dependancy array is the value you want to see! can pass more than 1 value.
+
+  useEffect(() => {
+    console.log(`field 2: ${val2}`);
+  }, [val2])
+
+  return(
+    <>
+    <label>
+      Favorite Phrase:
+      <input value = {val} onChange= {(e) => setVal(e.target.value)}/>
+    </label>
+    <br />
+    <label>
+      Second Favorite Phrase:
+      <input value = {val2} onChange= {(e) => setVal2(e.target.value)}/>
+    </label>
+    </>
+  )
+}
+
+const root16 = ReactDOM.createRoot(document.getElementById("root16"));
+
+root16.render(<Application></Application>)
