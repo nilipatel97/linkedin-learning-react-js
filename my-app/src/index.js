@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -308,7 +308,6 @@ root12.render(
 /************************ Chapter 4: React State with Hooks ******************************** */
 /*------------------------------------------------------------------------------------------ */
 
-
 /***************************** [4.1] Array Destructuring *********************************** */
 
 // here's a variable with an array
@@ -325,7 +324,7 @@ console.log(junk); // "popcorn"
 
 // will match the variable to the position; dont have to create variable to each position
 
-const [ , moderate] = ["basic", "economy", "business"];
+const [, moderate] = ["basic", "economy", "business"];
 
 console.log(moderate);
 
@@ -334,85 +333,83 @@ console.log(moderate);
 /** Notes:
  * - If there is any sort of change (in property or state), the react component, will rerender.
  * - Here, we are learning how to incorporate state values in our application
- * 
+ *
  * - A hook is a function that allows you to add some functionality to the component.
  * - So useState is a built-in hook that we can use to handle state changes in our application
  * - The first value that is returned from the useState function is the state value
  * - The second value is a function that we can use to change that state value
  * - If you're handling any state inside your component, useState is a powerful utility
- * 
+ *
  * - PROPS are passed to a function, and STATES are managed within a function. BOTH rerender the component
  */
 
- const root13 = ReactDOM.createRoot(document.getElementById("root13"));
+const root13 = ReactDOM.createRoot(document.getElementById("root13"));
 
- function UseStateExample1() {
-   const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
-   return (
-     <div>
-       <h2>Status: {status}</h2>
-       <button onClick ={() => setStatus("We're Open")}>Open</button>
-       <button onClick ={() => setStatus("Back in 5")}>Break</button>
-       <button onClick ={() => setStatus("We're Closed")}>Closed</button>
-     </div>
-   );
- }
- 
- root13.render(
-   <UseStateExample1></UseStateExample1>
- );
+function UseStateExample1() {
+  const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
+  return (
+    <div>
+      <h2>Status: {status}</h2>
+      <button onClick={() => setStatus("We're Open")}>Open</button>
+      <button onClick={() => setStatus("Back in 5")}>Break</button>
+      <button onClick={() => setStatus("We're Closed")}>Closed</button>
+    </div>
+  );
+}
 
- /******************************** [4.3] Using multiple state variables ************************************** */
- const root14 = ReactDOM.createRoot(document.getElementById("root14"));
+root13.render(<UseStateExample1></UseStateExample1>);
 
- function UseStateExample2() {
-   // NOTE: there are three states here!
-   const [year, setYear] = useState(2050);
-   const [PIC, setManager] = useState ("Jamie");
-   const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
+/******************************** [4.3] Using multiple state variables ************************************** */
+const root14 = ReactDOM.createRoot(document.getElementById("root14"));
 
-   return (
-     <div>
-       <h3>Year: {year}</h3>
-       <button onClick={() => setYear(year +1)}>Change Year</button>
+function UseStateExample2() {
+  // NOTE: there are three states here!
+  const [year, setYear] = useState(2050);
+  const [PIC, setManager] = useState("Jamie");
+  const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
 
-       
-       <h3>Manager on Duty: {PIC ? "Jamie" : "Kevin"} </h3>  
-       <button onClick={() => setManager(!PIC)}>Change Manager</button>
-      
-       
-       <h3>Status: {status}</h3>
-       <button onClick ={() => setStatus("We're Open")}>Open</button>
-       <button onClick ={() => setStatus("Back in 5")}>Break</button>
-       <button onClick ={() => setStatus("We're Closed")}>Closed</button>
-     </div>
-   );
- }
- 
- root14.render(
-   <UseStateExample2></UseStateExample2>
- );
+  return (
+    <div>
+      <h3>Year: {year}</h3>
+      <button onClick={() => setYear(year + 1)}>Change Year</button>
 
- /******************************** [4.4] Working with useEffect ************************************** */
- function Checkbox() {
+      <h3>Manager on Duty: {PIC ? "Jamie" : "Kevin"} </h3>
+      <button onClick={() => setManager(!PIC)}>Change Manager</button>
+
+      <h3>Status: {status}</h3>
+      <button onClick={() => setStatus("We're Open")}>Open</button>
+      <button onClick={() => setStatus("Back in 5")}>Break</button>
+      <button onClick={() => setStatus("We're Closed")}>Closed</button>
+    </div>
+  );
+}
+
+root14.render(<UseStateExample2></UseStateExample2>);
+
+/******************************** [4.4] Working with useEffect ************************************** */
+function Checkbox() {
   const [checked, setChecked] = useState(false); // checked is the state variable, and setChecked is the function that changes that variable.
 
   // effects: things we want the component to do other than return UI
   useEffect(() => {
-    console.log(`checked: ${checked.toString()}`)
-  })
+    console.log(`checked: ${checked.toString()}`);
+  });
 
-  return(
+  return (
     <>
-    <input type="checkbox" value={checked} onClick={()=>setChecked(!checked)}></input>
-    {checked ? "item selected" : "item NOT selected"}
+      <input
+        type="checkbox"
+        value={checked}
+        onClick={() => setChecked(!checked)}
+      ></input>
+      {checked ? "item selected" : "item NOT selected"}
     </>
-  )
+  );
 }
 
 const root15 = ReactDOM.createRoot(document.getElementById("root15"));
 
-root15.render(<Checkbox></Checkbox>)
+root15.render(<Checkbox></Checkbox>);
 
 /*------------------------------------------------------------------------------------------ */
 /************************ Chapter 5: React Enhancements ************************************ */
@@ -421,37 +418,37 @@ root15.render(<Checkbox></Checkbox>)
 /********************* [5.1] Updating with the useEffect dependency array ***************** */
 
 function Application() {
-  const [val,setVal] = useState("");
-  const [val2, setVal2] = useState("")
+  const [val, setVal] = useState("");
+  const [val2, setVal2] = useState("");
 
   useEffect(() => {
     console.log(`field 1: ${val}`);
-  }, [val])
+  }, [val]);
 
   // second argument of the dependancy array is the value you want to see! can pass more than 1 value.
 
   useEffect(() => {
     console.log(`field 2: ${val2}`);
-  }, [val2])
+  }, [val2]);
 
-  return(
+  return (
     <>
-    <label>
-      Favorite Phrase:
-      <input value = {val} onChange= {(e) => setVal(e.target.value)}/>
-    </label>
-    <br />
-    <label>
-      Second Favorite Phrase:
-      <input value = {val2} onChange= {(e) => setVal2(e.target.value)}/>
-    </label>
+      <label>
+        Favorite Phrase:
+        <input value={val} onChange={(e) => setVal(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Second Favorite Phrase:
+        <input value={val2} onChange={(e) => setVal2(e.target.value)} />
+      </label>
     </>
-  )
+  );
 }
 
 const root16 = ReactDOM.createRoot(document.getElementById("root16"));
 
-root16.render(<Application></Application>)
+root16.render(<Application></Application>);
 
 /********************* [5.2] Fetching data with useEffect ***************** */
 /** Another way to use the useEffect Hook, is to fetch some data
@@ -459,31 +456,88 @@ root16.render(<Application></Application>)
  * useEffect to handle side effects that aren't related to the UI
  */
 
- function GitHubUser({login}) { // purpose: to fetch some data from github api and display
+function GitHubUser({ login }) {
+  // purpose: to fetch some data from github api and display
   const [data, setData] = useState(null);
 
   // make the fetch request using useEffect
   useEffect(() => {
     fetch(`https://api.github.com/users/${login}`)
-    .then((res) => res.json())
-    .then(setData)
-    .catch(console.error)
-  }, [])
+      .then((res) => res.json())
+      .then(setData)
+      .catch(console.error);
+  }, []);
 
   if (data) {
     //return <div>{JSON.stringify(data)}</div>;
-    return <div><h1>{data.login}</h1> <img src={data.avatar_url} width={100}/></div>
-  } return null;
-  
+    return (
+      <div>
+        <h1>{data.login}</h1> <img src={data.avatar_url} width={100} />
+      </div>
+    );
+  }
+  return null;
 }
 
-
-function UseEffectApp() { // this app will then, return the github user
-  return <><GitHubUser login="nilipatel97"></GitHubUser>
-  <GitHubUser login="eveporcello"></GitHubUser></>
+function UseEffectApp() {
+  // this app will then, return the github user
+  return (
+    <>
+      <GitHubUser login="nilipatel97"></GitHubUser>
+      <GitHubUser login="eveporcello"></GitHubUser>
+    </>
+  );
 }
 
-const root17 = ReactDOM.createRoot(document.getElementById('root17'));
+const root17 = ReactDOM.createRoot(document.getElementById("root17"));
 
-root17.render(<><UseEffectApp login="nilipatel97"></UseEffectApp></>)
+root17.render(
+  <>
+    <UseEffectApp login="nilipatel97"></UseEffectApp>
+  </>
+);
 
+/********************* [5.3] Using useReducer ***************** */
+
+function CheckboxThree() {
+  const [checked, setChecked] = useState(false);
+  return (
+    <>
+      <input
+        type="checkbox"
+        value={checked}
+        onChange={() => setChecked((checked) => !checked)} // can abstract this logic one layer up
+      />
+      {checked ? "checked" : "not checked"}
+    </>
+  );
+}
+
+const root18 = ReactDOM.createRoot(document.getElementById("root18"));
+
+root18.render(<CheckboxThree></CheckboxThree>);
+
+// for larger projects, when managing state gets more complex ... use reducer helps manage state.
+
+function CheckboxThreeB() {
+  const [checked, toggle] = useReducer(((checked) => !checked), false);
+
+  //THIS IS A REDUCER FUCTION -- it takes in the current state and returns a new state
+  // function toggle () {
+  //   setChecked((checked) => !checked)
+  //}
+  return (
+    <>
+      <input
+        type="checkbox"
+        value={checked}
+        onChange={toggle}
+      />
+      {checked ? "checked" : "not checked"}
+    </>
+  );
+}
+
+const root19 = ReactDOM.createRoot(document.getElementById("root19"));
+
+root19.render(<CheckboxThreeB></CheckboxThreeB>);
