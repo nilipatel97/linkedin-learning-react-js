@@ -275,3 +275,31 @@ function App4b({ season }) {
   );
 }
 root11.render(<App4b season="winter" />);
+
+/***************************** [3.8] React Fragments *************************************** */
+const root12 = ReactDOM.createRoot(document.getElementById("root12"));
+
+function Beach3({ beachName }) {
+  return (
+    <div>
+      <h2>Visit {beachName}!</h2>
+    </div>
+  );
+}
+
+function SkiResort4({ skiName }) {
+  return (
+    <div>
+      <h2>Visit {skiName}!</h2>
+    </div>
+  );
+}
+
+root12.render(
+  <>
+    <Beach3 beachName="Pink Sand Beach" />
+    <SkiResort4 skiName="chocolate ski lounge" />
+  </>
+);
+
+// NOTES: Adjacent React Components must be wrapped in a <div> or <React.Fragment> or <></>
