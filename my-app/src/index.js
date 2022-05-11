@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
@@ -366,16 +366,20 @@ console.log(moderate);
  const root14 = ReactDOM.createRoot(document.getElementById("root14"));
 
  function UseStateExample2() {
+   // NOTE: there are three states here!
    const [year, setYear] = useState(2050);
-   const [manager, setManager] = useState ("Jamie");
+   const [PIC, setManager] = useState ("Jamie");
    const [status, setStatus] = useState("Welcome"); // first value is state value, second value is function to update the state value. Can set a default status
+
    return (
      <div>
        <h3>Year: {year}</h3>
        <button onClick={() => setYear(year +1)}>Change Year</button>
 
-       <h3>Manager on Duty: {manager}</h3>
-       <button onClick={() => setManager("Kevin")}>New Manager</button>
+       
+       <h3>Manager on Duty: {PIC ? "Jamie" : "Kevin"} </h3>  
+       <button onClick={() => setManager(!PIC)}>Change Manager</button>
+      
        
        <h3>Status: {status}</h3>
        <button onClick ={() => setStatus("We're Open")}>Open</button>
@@ -388,3 +392,24 @@ console.log(moderate);
  root14.render(
    <UseStateExample2></UseStateExample2>
  );
+
+ /******************************** [4.4] Working with useEffect ************************************** */
+ function Checkbox() {
+  const [checked, setChecked] = useState(false); // checked is the state variable, and setChecked is the function that changes that variable.
+
+  // effects: things we want the component to do other than return UI
+  useEffect(() => {
+    console.log(`checked: ${checked.toString()}`)
+  })
+
+  return(
+    <>
+    <input type="checkbox" value={checked} onClick={()=>setChecked(!checked)}></input>
+    {checked ? "item selected" : "item NOT selected"}
+    </>
+  )
+}
+
+const root15 = ReactDOM.createRoot(document.getElementById("root15"));
+
+root15.render(<Checkbox></Checkbox>)
