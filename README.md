@@ -151,9 +151,17 @@ ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementB
 
 #### [Chapter 3 Lesson 5] Rendering lists of objects
 
+#### [Chapter 5 Lesson 4] Deploying a React App
+* create-react-app gives us a script for building
+* 1) npm run build creates a production build for the project -- minifies project for serving
+* 2) next, you have to serve so you need to install the serve package using "npm install -g serve"
+* 3) next use "serve -s build" to serve the build folder up on localhost:5000
+
 
 #### TODO:
 * look into code sandbox website
+
+* This app is deployed here: https://jade-cocada-dfe729.netlify.app/
 
 
 
