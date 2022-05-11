@@ -452,3 +452,38 @@ function Application() {
 const root16 = ReactDOM.createRoot(document.getElementById("root16"));
 
 root16.render(<Application></Application>)
+
+/********************* [5.2] Fetching data with useEffect ***************** */
+/** Another way to use the useEffect Hook, is to fetch some data
+ * You can get data in JSON from https://api.github.com/users/nilipatel97 to build some github user component
+ * useEffect to handle side effects that aren't related to the UI
+ */
+
+ function GitHubUser({login}) { // purpose: to fetch some data from github api and display
+  const [data, setData] = useState(null);
+
+  // make the fetch request using useEffect
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${login}`)
+    .then((res) => res.json())
+    .then(setData)
+    .catch(console.error)
+  }, [])
+
+  if (data) {
+    //return <div>{JSON.stringify(data)}</div>;
+    return <div><h1>{data.login}</h1> <img src={data.avatar_url} width={100}/></div>
+  } return null;
+  
+}
+
+
+function UseEffectApp() { // this app will then, return the github user
+  return <><GitHubUser login="nilipatel97"></GitHubUser>
+  <GitHubUser login="eveporcello"></GitHubUser></>
+}
+
+const root17 = ReactDOM.createRoot(document.getElementById('root17'));
+
+root17.render(<><UseEffectApp login="nilipatel97"></UseEffectApp></>)
+
