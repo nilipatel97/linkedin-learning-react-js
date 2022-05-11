@@ -303,3 +303,27 @@ root12.render(
 );
 
 // NOTES: Adjacent React Components must be wrapped in a <div> or <React.Fragment> or <></>
+
+/******************************************************************************************* */
+/************************ Chapter 4: React State with Hooks ******************************** */
+/******************************************************************************************* */
+
+/***************************** [4.1] Array Destructuring *********************************** */
+
+// here's a variable with an array
+
+const pH = ["basic", "neutral", "acidic"];
+
+console.log(pH[1]);
+
+// heres it is destructured
+
+const [junk, medium, healthy] = ["popcorn", "pretzel", "pineapple"];
+
+console.log(junk);
+
+// will match the variable to the position; dont have to create variable to each position
+
+const [ , moderate] = ["basic", "economy", "business"];
+
+console.log(moderate);
