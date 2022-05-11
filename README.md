@@ -149,6 +149,8 @@ ReactDOM.render(<Hello courseName="React" name= "Nili" age= {24} />, getElementB
 * Pass props into your function
 * Iterate through the prop, and return a list item for every item in the array.
 
+#### [Chapter 3 Lesson 5] Rendering lists of objects
+
 
 #### TODO:
 * look into code sandbox website
